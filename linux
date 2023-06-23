@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="i3 nvim polybar"
+    STOW_FOLDERS="i3 nvim polybar zsh"
 fi
 
 if [[ -z $DOTFILES ]]; then
