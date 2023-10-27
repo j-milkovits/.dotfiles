@@ -154,6 +154,8 @@ assign [class="Bitwarden"] $ws8
 assign [class="Insync"] $ws8
 assign [class="Steam"] $ws9
 
+workspace 8 output HDMI-0
+
 ## modes
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
