@@ -154,7 +154,7 @@ assign [class="Bitwarden"] $ws8
 assign [class="Insync"] $ws8
 assign [class="Steam"] $ws9
 
-workspace 8 output HDMI-0
+workspace 8 output DP-2
 
 ## modes
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
@@ -197,8 +197,7 @@ exec --no-startup-id xfce4-power-manager
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id xautolock -time 10 -locker blurlock -corners 000- -cornersize 30
-exec --no-startup-id xrandr --output DP-3 --primary
-exec xrandr -s 5120x1440
+exec --no-startup-id xrandr --output DP-0 --primary
 exec_always --no-startup-id feh --bg-fill /home/jonasm/Pictures/nord-brushed-stripes.png
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
