@@ -26,6 +26,7 @@ return {
         "typescript-language-server",
         "css-lsp",
         "pyright",
+
         -- formatter
         "stylua",
         "prettier",
@@ -62,5 +63,9 @@ return {
       default_notebook_URL = "localhost:8888",
       use_default_keybindings = false,
     },
+  },
+
+  {
+    "github/copilot.vim",
   },
 }
