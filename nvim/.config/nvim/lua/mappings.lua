@@ -32,3 +32,8 @@ map({ "n", "x" }, "<leader>jj", "<cmd> JupyniumScrollToCell <cr> ")
 map({ "n", "x" }, "<leader>ju", "<cmd> JupyniumScrollUp <cr>")
 map({ "n", "x" }, "<leader>jd", "<cmd> JupyniumScrollDown <cr>")
 map({ "n", "x" }, "<leader>jr", "<cmd> JupyniumKernelRestart <cr>")
+
+-- copilot
+map({ "n", "x" }, "<leader>cl", "<cmd> Lazy load copilot.vim  | Copilot <cr>")
+map("i", "<C-m>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false, silent = true })
+vim.g.copilot_no_tab_map = true

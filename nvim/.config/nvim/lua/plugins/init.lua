@@ -60,7 +60,7 @@ return {
     "kiyoon/jupynium.nvim",
     build = "pip install .",
     opts = {
-      default_notebook_URL = "localhost:8888",
+      default_notebook_URL = "localhost:8888/nbclassic",
       use_default_keybindings = false,
     },
   },
