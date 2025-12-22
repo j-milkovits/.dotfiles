@@ -26,10 +26,22 @@ return {
         "typescript-language-server",
         "css-lsp",
         "pyright",
+        "rust-analyzer",
+        "jdtls",
 
         -- formatter
         "stylua",
         "prettier",
+      },
+    },
+  },
+
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
+      view = {
+        width = 50,
+        side = "right",
       },
     },
   },
@@ -50,8 +62,9 @@ return {
         "typescript",
         "tsx",
 
-        -- data science
+        -- others
         "python",
+        "java",
       },
     },
   },
