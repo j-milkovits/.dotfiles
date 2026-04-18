@@ -2,15 +2,12 @@ return {
   {
     "stevearc/conform.nvim",
     event = "BufWritePre", -- uncomment for format on save
-    config = function()
-      require "configs.conform"
-    end,
+    opts = require "configs.conform",
   },
 
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
     end,
   },
@@ -65,20 +62,13 @@ return {
         -- others
         "python",
         "java",
+
+        -- storage stuff
+        "json",
+        "yaml",
+        "toml",
+        "markdown",
       },
     },
-  },
-
-  {
-    "kiyoon/jupynium.nvim",
-    build = "pip install .",
-    opts = {
-      default_notebook_URL = "localhost:8888/nbclassic",
-      use_default_keybindings = false,
-    },
-  },
-
-  {
-    "github/copilot.vim",
   },
 }

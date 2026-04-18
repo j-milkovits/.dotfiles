@@ -24,15 +24,6 @@ map("n", "<leader>tt", function()
   require("base46").toggle_transparency()
 end)
 
--- jupynium.nvim
-map({ "n", "x" }, "<leader>jl", "<cmd> Lazy load jupynium.nvim  | JupyniumStartAndAttachToServer <cr>")
-map({ "n", "x" }, "<leader>jx", "<cmd> JupyniumExecuteSelectedCells <cr>")
-map({ "n", "x" }, "<leader>jc", "<cmd> JupyniumClearSelectedCellsOutputs <cr>")
-map({ "n", "x" }, "<leader>jj", "<cmd> JupyniumScrollToCell <cr> ")
-map({ "n", "x" }, "<leader>ju", "<cmd> JupyniumScrollUp <cr>")
-map({ "n", "x" }, "<leader>jd", "<cmd> JupyniumScrollDown <cr>")
-map({ "n", "x" }, "<leader>jr", "<cmd> JupyniumKernelRestart <cr>")
-
 -- copilot
 map({ "n", "x" }, "<leader>cl", "<cmd> Lazy load copilot.vim  | Copilot <cr>")
 map("i", "<C-m>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false, silent = true })
