@@ -28,3 +28,28 @@ end)
 map({ "n", "x" }, "<leader>cl", "<cmd> Lazy load copilot.vim  | Copilot <cr>")
 map("i", "<C-m>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false, silent = true })
 vim.g.copilot_no_tab_map = true
+
+-- term
+-- Open/toggle lazygit from normal mode
+map("n", "<A-g>", function()
+  require("nvchad.term").toggle {
+    pos = "float",
+    cmd = "lazygit",
+    id = "lazygit",
+    float_opts = {
+      row = 0.05,
+      col = 0.1,
+      width = 0.8,
+      height = 0.8,
+      border = "single",
+    },
+  }
+end, { desc = "Git  Lazygit (float)" })
+
+-- Hide lazygit from inside the terminal
+map("t", "<A-g>", function()
+  require("nvchad.term").toggle {
+    pos = "float",
+    id = "lazygit",
+  }
+end, { desc = "Git  Hide Lazygit" })
