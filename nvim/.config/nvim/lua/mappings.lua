@@ -5,32 +5,23 @@ local map = vim.keymap.set
 -- save
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
--- harpoon
--- local mark = require("harpoon.mark")
--- local ui = require("harpoon.ui")
-
--- vim.keymap.set("n", "<leader>a", mark.add_file)
--- vim.keymap.set("n", "<C-h>", ui.toggle_quick_menu)
---
--- vim.keymap.set("n", "<C-f>", function() ui.nav_file(1) end)
--- vim.keymap.set("n", "<C-j>", function() ui.nav_file(2) end)
-
 -- vertical movement
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
+
+--- stay centered on searches
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+
+-- delete without affecting the register
+map({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yanking" })
 
 -- neovim settings
 map("n", "<leader>tt", function()
   require("base46").toggle_transparency()
 end)
 
--- copilot
-map({ "n", "x" }, "<leader>cl", "<cmd> Lazy load copilot.vim  | Copilot <cr>")
-map("i", "<C-m>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false, silent = true })
-vim.g.copilot_no_tab_map = true
-
--- term
--- Open/toggle lazygit from normal mode
+-- lazygit
 map("n", "<A-g>", function()
   require("nvchad.term").toggle {
     pos = "float",
@@ -46,10 +37,30 @@ map("n", "<A-g>", function()
   }
 end, { desc = "Git  Lazygit (float)" })
 
--- Hide lazygit from inside the terminal
 map("t", "<A-g>", function()
   require("nvchad.term").toggle {
     pos = "float",
     id = "lazygit",
   }
 end, { desc = "Git  Hide Lazygit" })
+
+-- claude code
+map("n", "<A-c>", "<cmd>ClaudeCodeFocus<cr>", { desc = "Focus Claude" })
+map("t", "<A-c>", "<cmd>ClaudeCode<cr>", { desc = "AI  Hide Claude" })
+map("n", "<leader>ar", "<cmd>ClaudeCode --resume<cr>", { desc = "Resume conversation" })
+map("n", "<leader>aC", "<cmd>ClaudeCode --continue<cr>", { desc = "Continue last conversation" })
+map("n", "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", { desc = "Add current buffer" })
+map("v", "<leader>as", "<cmd>ClaudeCodeSend<cr>", { desc = "Send selection" })
+map("n", "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", { desc = "Accept diff" })
+map("n", "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", { desc = "Deny diff" })
+
+-- add file from nvim-tree
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw" },
+  callback = function(args)
+    vim.keymap.set("n", "<leader>ab", "<cmd>ClaudeCodeTreeAdd<cr>", {
+      buffer = args.buf,
+      desc = "Add file from tree",
+    })
+  end,
+})

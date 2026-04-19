@@ -19,7 +19,7 @@ M.base46 = {
 
 M.ui = {
   tabufline = {
-    order = { "buffers", "tabs", "btns", "treeOffset" }, -- Moved 'treeOffset' to the end
+    order = { "treeOffset", "buffers", "tabs", "btns" },
   },
   statusline = {
     theme = "default",
